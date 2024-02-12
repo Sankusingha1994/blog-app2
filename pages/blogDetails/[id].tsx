@@ -1,9 +1,10 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { db } from "@/firebase";
-import { addDoc, collection, doc, getDoc, onSnapshot, orderBy, query, where } from "firebase/firestore";
+import { DocumentData, addDoc, collection, doc, getDoc, onSnapshot, orderBy, query, where } from "firebase/firestore";
 import { Box, Button, TextField, ThemeProvider, Typography, createTheme } from "@mui/material";
 import Wrapper from "@/layout/wrapper/Wrapper";
+import { Query } from "react-query";
 
 
 const theme = createTheme({
@@ -32,7 +33,6 @@ interface BlogPost {
 interface Comment {
   text: string;
   createdAt: number;
-  
 }
 
 const BlogDetails: React.FC = () => {
